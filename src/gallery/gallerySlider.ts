@@ -32,17 +32,16 @@ class GallerySlider {
   private pagesPerSection: HTMLCollection[];
   private currentPage: number[];
   private currentSection: number;
-  private isDragging: boolean;
-  private draggingPercent: number;
+
   private waitAnimation: boolean;
   private timeToAnimate: number;
   private height: number;
   private width: number;
   private swipeDirection: SwipeDirection;
-  private options: GallerySliderOptions;
+
   private translate: Translate;
   private touches: Touches;
-  private tooltip: HTMLElement | null;
+
   private nav_btns: HTMLCollection;
 
   constructor(options: GallerySliderOptions = {}) {
@@ -56,8 +55,8 @@ class GallerySlider {
     this.currentPage = [];
     this.currentSection = 0;
 
-    this.isDragging = false;
-    this.draggingPercent = 20;
+    // this.isDragging = false;
+    // this.draggingPercent = 20;
 
     this.waitAnimation = false;
     this.timeToAnimate = options.animation ?? 500;
@@ -67,7 +66,7 @@ class GallerySlider {
 
     this.swipeDirection = false;
 
-    this.options = { ...options };
+    // this.options = { ...options };
 
     this.translate = {
       section: 0,
@@ -81,7 +80,7 @@ class GallerySlider {
       endY: null
     };
 
-    this.tooltip = document.getElementById('tooltip');
+    // this.tooltip = document.getElementById('tooltip');
     this.nav_btns = document.getElementsByClassName('nav-control-btn');
 
     this.init();
@@ -286,7 +285,7 @@ class GallerySlider {
     if (pageRadio) pageRadio.checked = true;
 
     // Reset settings after swipe, drag or click ended
-    this.isDragging = false;
+    // this.isDragging = false;
     this.width = 100;
     this.height = 100;
 
@@ -366,7 +365,7 @@ class GallerySlider {
     const avoid = void_target ? (void_target as HTMLElement).dataset.avoidScroll : void_target;
     if (avoid) return;
 
-    this.isDragging = true;
+    // this.isDragging = true;
     this.swipeDirection = false;
 
     this.touches.startX = target ? target.clientX : null;
@@ -397,7 +396,7 @@ class GallerySlider {
       }
     }
 
-    this.isDragging = false;
+    // this.isDragging = false;
     this.touches.startX = null;
     this.touches.startY = null;
     this.touches.endX = null;
