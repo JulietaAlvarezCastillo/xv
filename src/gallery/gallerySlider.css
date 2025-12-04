@@ -1,0 +1,147 @@
+@import "tailwindcss";
+/* @plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/aspect-ratio"; */
+
+@layer components {
+  body{
+    @apply h-screen max-h-screen;
+  }
+
+}
+@layer components {
+  .wholepage {
+    @apply fixed block w-full h-full overflow-hidden;
+  }
+
+
+  .pageButtonContainer,
+  .sectionButtonContainer {
+    @apply fixed flex gap-1;
+  }
+
+  .sectionButtonContainer {
+    @apply flex-col;
+  }
+
+  .pageButtonContainer {
+    @apply top-auto left-1;
+  }
+
+  .nav-control-btn {}
+
+  .section-row {
+    @apply flex flex-row w-dvw h-full overflow-hidden transform translate-x-0 translate-y-0 transition-transform duration-400 ease-out m-0 p-0;
+  }
+  .section,.page{
+    will-change: transform;
+    transition: transform .75s ease-in-out;
+  }
+
+  .nav-label label {
+    @apply inline-flex justify-center items-center rounded transition-transform duration-200 m-0 p-0 cursor-pointer;
+    width: var(--nav-dots);
+    height: var(--nav-dots);
+    background: rgb(255, 255, 255, 0.0512);
+    border-radius: .25rem;
+  }
+
+  .nav-label label::after {
+    @apply block relative rounded-full;
+    content: '';
+    padding: 4px;
+    background: rgb(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 8px rgba(0, 27, 160, 0.8);
+  }
+
+  .radio_controler input[type=radio]:checked + label::after {
+    @apply transform scale-125 transition-transform duration-200;
+  }
+
+  .page {
+    --width-multiplier: 1;
+    @apply flex-1 shrink-0 basis-full flex flex-col w-dvw h-full max-h-dvh overflow-hidden items-center transform translate-x-0 translate-y-0 transition-transform duration-400 ease-out;
+    flex-basis: calc(100dvw * var(--width-multiplier));
+    padding-top: var(--header-height);
+  }
+
+  .page-wrapper {
+    @apply relative w-full h-full;
+    max-height: calc(100% - var(--page-gutter) - var(--nav-dots) - .75rem);
+    padding-top: calc(var(--header-h) + .25rem);
+    max-width: calc((100dvw * var(--width-multiplier)) - calc(var(--page-gutter) * 4.25));
+  }
+
+  .page-wrapper--full {
+    @apply relative w-full h-full;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .page-wrapper.headerless {
+    @apply pt-0;
+  }
+
+  .page-wrapper--pagespan {
+    @apply relative w-full h-full flex gap-x-[calc(var(--page-gutter)*5)];
+    max-height: calc(100% - var(--page-gutter) - var(--nav-dots) - .75rem);
+    padding-top: calc(var(--header-h) + .25rem);
+    max-width: calc((100dvw * var(--width-multiplier)) - calc(var(--page-gutter) * 4.25));
+  }
+
+  .page-wrapper [class^='container'] {
+    @apply h-full overflow-auto;
+  }
+
+  .page-bg {
+    @apply top-0 left-0 w-full h-full;
+  }
+
+  .page-bg img,
+  .page-bg video,
+  .page-bg canvas {
+    @apply w-full h-full;
+  }
+
+  .page-bg img,
+  .page-bg video {
+    @apply object-cover object-center;
+  }
+
+  .sectionButtonContainer {
+    @apply fixed top-auto left-[calc(var(--page-gutter)*0.5)] bottom-[calc(var(--page-gutter)+var(--nav-dots))];
+    width: var(--nav-dots);
+    color: rgb(30, 30, 30);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
+
+  /* .sectionButtonContainer.nav-label {
+    @apply .nav-label;
+  } */
+
+  /* .sectionButtonContainer.radio_controler {
+    @apply radio_controler;
+  } */
+
+  .pageButtonContainer {
+    @apply absolute bottom-[var(--page-gutter)] left-[calc(var(--page-gutter)*.5+var(--nav-dots))] h-[var(--nav-dots)] z-50;
+    color: rgb(30, 30, 30);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
+
+  /* .pageButtonContainer.nav-label {
+    @apply .nav-label;
+  } */
+
+  /* .pageButtonContainer.radio_controler {
+    @apply radio_controler;
+  } */
+
+  .navbar-expand-lg .offcanvas {
+    @apply h-dvh;
+  }
+
+  [class^="masonry-"] > .masonry-item {
+    @apply mb-4;
+    break-inside: avoid-column;
+  }
+}

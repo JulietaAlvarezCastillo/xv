@@ -1,0 +1,388 @@
+@import "tailwindcss";
+@import './assets/css/lanscape-portrait.css';
+@import './gallery/gallerySlider.css';
+@import 'atropos/atropos.css';
+
+
+@theme {
+  --color-gold-300:#bca45c;
+  --color-gold-400:#97844a;
+  --color-gold-700:#473e23;
+  --color-tussock: #af8f3c;
+
+}
+@layer base {
+  a>img {
+    @apply pointer-events-none;
+  }
+  mark{
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    border-radius: 6px;
+  }
+}
+@layer components {
+  .navbar-nav{
+    @apply flex gap-3;
+  }
+  .mainNavHeader{
+    @apply fixed top-0 right-0 left-0 z-50;
+  }
+  .atropos {
+    &, & .atropos-inner {
+      @apply border-0;
+    }
+  }
+  .main_title{
+    @apply mt-36 xl:mt-8 mb-auto max-w-[75vw];
+  }
+  .maps-pointer{
+    @apply aspect-5/8 h-(--text-5xl) mr-5 transform scale-[1.5];
+  }
+  .icon{
+    @apply aspect-square max-w-8 w-full;
+  }
+  .shareButton{
+    @apply text-base text-gray-800 bg-white flex items-center px-5 py-3 rounded-xl cursor-pointer border border-gray-800 hover:shadow-md hover:text-white hover:bg-gray-800;
+  }
+
+  .slide-flower{
+    aspect-ratio: 128/155;
+  }
+  .slide-petal,.slide-circle{
+    @apply aspect-square w-full;
+  }
+  .slide-circle{
+    @apply rounded-full bg-linear-to-b from-gold-300 to-gold-400 absolute mx-auto my-auto;
+  }
+  .section {
+    .transformable {
+      will-change: transform;
+      transition: transform .25s ease-in-out;
+    }
+
+    &.section-current .transformable {
+      transition-delay: .5s;
+      transform: translate(0, 0);
+    }
+
+    &.section-past .transformable {
+      transform: translate(0, -100vh);
+    }
+
+    &.section-future .transformable {
+      transform: translate(0, 100vh);
+    }
+    .petal{
+      @apply filter sepia -hue-rotate-90;
+    }
+    .flower{
+      @apply filter sepia -hue-rotate-90;
+    }
+  }
+
+  .section-1{
+    .flower-1 {
+      right: -62% !important;
+      top: -65% !important;
+      max-width: 15vh;
+      .flower{
+        transform: rotate(25deg);
+        filter: blur(1px) sepia(1) hue-rotate(-90deg);
+      }
+    }
+    .flower-2 {
+      left: -45% !important;
+      bottom: -20% !important;
+      max-width: 18vh;
+      .flower{
+        filter: blur(1px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(-18deg);
+      }
+    }
+    .flower-3 {
+      bottom: -60% !important;
+      max-width: 25vh;
+      .flower{
+        filter: blur(1px) sepia(1) hue-rotate(-90deg);
+        transform:rotate(30deg);
+      }
+    }
+    .flower-4 {
+      max-width: 25vw;
+      filter: blur(0) sepia(1) hue-rotate(-90deg);
+    }
+    .flower-5 {
+      max-width: 35vw;
+      filter: blur(0) sepia(1) hue-rotate(-90deg);
+    }
+  }
+  .section-2 {
+    .circle-0 {
+      @apply top-12 right-4 xl:right-10 max-w-12;
+      width: 3rem;
+    }
+
+    .circle-1 {
+      @apply top-0 left-0;
+      width: 250px;
+      max-width: 25vh;
+      transform: translate(-35%, -60%);
+    }
+
+    .circle-2 {
+      @apply bottom-0 right-0 max-w-[35vh] lg:max-w-[45vw];
+      width: 450px;
+      transform: translate(50%, 25%);
+    }
+
+    .circle-3 {
+      @apply inset-0 transform max-w-[72vh] lg:max-w-[85vh] translate-x-[-30%] md:translate-x-0;
+      width: 800px;
+    }
+
+    .petal-1 {
+      @apply top-16 right-8 xl:right-[10vw] max-w-[10vh];
+      .petal {
+        transform: rotate(-25deg);
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+      }
+    }
+
+    .petal-2 {
+      @apply left-[15%] top-[13%] max-w-[10vh];
+
+      .petal {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(150deg);
+      }
+    }
+
+    .petal-3 {
+      @apply bottom-[35%] right-[-10%] md:right-0 xl:right-[10%] max-w-28 xl:max-w-18;
+
+      .petal {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(-20deg);
+      }
+    }
+    .petal-4 {
+      @apply bottom-[15vh] xl:bottom-[10vh] left-[50%] md:left-[30%] max-w-[11vh];
+
+      .petal {
+        transform: rotate(25deg);
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+      }
+    }
+    .flower-1 {
+      @apply max-w-[50vw] lg:max-w-[35vw] xl:max-w-[20rem] -bottom-8 xl:-bottom-25 -left-8 lg:left-0;
+
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(0);
+      }
+    }
+    .flower-2 {
+      @apply w-full max-w-[45vw] lg:max-w-[25vh] -bottom-8 right-0;
+
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(0);
+      }
+    }
+    .flower-3 {
+      @apply max-w-[35vw] lg:max-w-[25vw] -bottom-8 right-24 md:right-52;
+
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(-28deg);
+      }
+    }
+
+  }
+  .section-3{
+    .circle-0 {
+      @apply top-12 left-4 xl:left-10 w-full max-w-18 lg:max-w-45;
+    }
+
+    .circle-1 {
+      @apply bottom-0 left-0 max-w-[25vh] lg:max-w-[45vh] transform translate-x-[-35%] translate-y-[40%] lg:translate-y-[60%];
+      /* transform: translate(-35%, 60%); */
+    }
+
+    .circle-2 {
+      @apply bottom-0 right-0 max-w-[25vh] lg:max-w-[45vh] w-[450px]
+      transform translate-x-[50%] lg:translate-x-[30%] translate-y-[65%] lg:translate-y-[25%];
+    }
+
+    .circle-3 {
+      @apply inset-0 transform max-w-[72vh] lg:max-w-[85vh] w-[800px];
+    }
+
+    .petal-1 {
+      @apply top-16 right-8 xl:right-[10vw] max-w-[10vh];
+      .petal {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(-25deg);
+      }
+    }
+
+    .petal-2 {
+      @apply left-[15%] top-[13%] max-w-[10vh];
+
+      .petal {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(150deg);
+      }
+    }
+
+    .petal-3 {
+      @apply bottom-[35%] right-[-10%] md:right-0 xl:right-[10%] max-w-28 xl:max-w-18;
+
+      .petal {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(-20deg);
+      }
+    }
+    .petal-4 {
+      @apply bottom-[85vh] xl:bottom-[10vh] right-[60%] right-[50%] md:right-[30%] max-w-[11vh];
+
+      .petal {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(25deg);
+      }
+    }
+
+    .petal-5 {
+      @apply top-8 lg:top-32 right-46 xl:right-[25vw] max-w-[10vh];
+      .petal {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(-96deg);
+      }
+    }
+
+    .petal-6 {
+      @apply left-0 lg:left-[10%] top-[35%] lg:top-[40%] max-w-[10vh];
+
+      .petal {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(132deg);
+      }
+    }
+
+    .petal-7 {
+      @apply bottom-[75vh] lg:bottom-[15%] right-[10%] xl:right-[10%] max-w-28 xl:max-w-18;
+
+      .petal {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(100deg);
+      }
+    }
+    .petal-8 {
+      @apply bottom-[25vh] left-[20%] max-w-[11vh];
+
+      .petal {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        transform: rotate(25deg);
+      }
+    }
+    .slide-flower{
+      @apply w-full max-w-[35vw] xl:max-w-[20rem] -bottom-[10%] lg:-bottom-[16%];
+    }
+    .flower-0 {
+      @apply left-0 lg:left-[15vw] -scale-x-100;
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        /* filter: blur(0px) sepia(1) hue-rotate(-90deg); */
+        transform: rotate(0);
+      }
+    }
+    .flower-1 {
+      @apply left-[10vw] lg:left-[30vw];
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        /* filter: blur(0px) sepia(1) hue-rotate(-90deg); */
+        transform: rotate(0);
+      }
+    }
+
+    .flower-2 {
+      @apply
+      left-[25vw] lg:left-[39vw];
+
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        /* filter: blur(0px) sepia(1) hue-rotate(-90deg); */
+        transform: rotate(0);
+      }
+    }
+
+    .flower-3 {
+      @apply right-0 lg:right-[10vw];
+
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        /* filter: blur(0px) sepia(1) hue-rotate(-90deg); */
+        transform: rotate(0);
+      }
+    }
+    .flower-4 {
+      @apply right-[21vw] lg:right-[25vw] -scale-x-100;
+
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        /* filter: blur(0px) sepia(1) hue-rotate(-90deg); */
+        transform: rotate(0);
+      }
+    }
+    .flower-5 {
+      @apply left-[31vw] lg:left-[25vw] -scale-x-100 max-w-[16vw] bottom-0;
+
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        /* filter: blur(0px) sepia(1) hue-rotate(-90deg); */
+        transform: rotate(0);
+      }
+    }
+    .flower-6 {
+      @apply right-[21vw] lg:right-[25vw] max-w-[15vw] lg:max-w-[9vw] -bottom-[15%] lg:-bottom-[3%];
+
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        /* filter: blur(0px) sepia(1) hue-rotate(-90deg); */
+        transform: rotate(0);
+      }
+    }
+    .flower-7 {
+      @apply right-[31vw] lg:right-[46vw] -scale-x-100 max-w-[18vw] lg:max-w-[10vw] -bottom-[3%];
+
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        /* filter: blur(0px) sepia(1) hue-rotate(-90deg); */
+        transform: rotate(0);
+      }
+    }
+    .flower-8 {
+      @apply right-[32vw] lg:right-[35vw] max-w-[25vw] lg:max-w-[17vw];
+
+      .flower {
+        filter: blur(0px) sepia(1) hue-rotate(-90deg);
+        /* filter: blur(0px) sepia(1) hue-rotate(-90deg); */
+        transform: rotate(0);
+      }
+    }
+  }
+}
+@layer utilities {
+  .addShadow{
+    filter: drop-shadow(4px 5px 8px rgba(0,0,0,.75));
+  }
+  .dark-gold-corner{
+    @apply bg-gold-700;
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+  }
+  .light-gold-corner{
+    @apply bg-gradient-to-b from-gold-300 to-gold-400;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 25%);
+  }
+}

@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@layer utilities {
+
+  /* Utilidades comunes para ambas alertas */
+  .direction-commons {
+    @apply fixed inset-0 bg-black/90 backdrop-blur-sm h-screen w-screen px-8 py-8 justify-center content-center;
+  }
+
+  .svg-animated {
+    @apply animate-[duration_2s] fill-white/75 origin-center;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+
+  .arrows-common {
+    @apply animate-[duration_2s] fill-white/25;
+  }
+
+  .alert-text {
+    @apply text-white text-xl;
+  }
+
+  /* Animaciones personalizadas */
+  @keyframes cellphoneToLandscape {
+    0% {
+      opacity: 0;
+      transform: rotate(0deg);
+    }
+
+    10% {
+      opacity: 0;
+      transform: rotate(0deg);
+    }
+
+    90% {
+      opacity: 1;
+      transform: rotate(-90deg);
+    }
+
+    100% {
+      transform: rotate(-90deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes arrowsToLandscape {
+    0% {
+      opacity: 0;
+      transform: rotate(0deg);
+    }
+
+    10% {
+      opacity: 0;
+      transform: rotate(0deg);
+    }
+
+    90% {
+      opacity: 1;
+      transform: rotate(-10deg);
+    }
+
+    100% {
+      transform: rotate(-10deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes cellphoneToPortrait {
+    0% {
+      opacity: 0;
+      transform: rotate(-90deg);
+    }
+
+    10% {
+      opacity: 0;
+      transform: rotate(-90deg);
+    }
+
+    90% {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes arrowsToPortrait {
+    0% {
+      opacity: 0;
+      transform: rotate(-10deg);
+    }
+
+    10% {
+      opacity: 0;
+      transform: rotate(-10deg);
+    }
+
+    90% {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+      opacity: 0;
+    }
+  }
+
+  /* Clases de utilidad para las animaciones */
+  .animate-cellphone-landscape {
+    animation: cellphoneToLandscape 2s infinite both;
+  }
+
+  .animate-arrows-landscape {
+    animation: arrowsToLandscape 2s infinite;
+  }
+
+  .animate-cellphone-portrait {
+    animation: cellphoneToPortrait 2s infinite both;
+  }
+
+  .animate-arrows-portrait {
+    animation: arrowsToPortrait 2s infinite;
+  }
+}
