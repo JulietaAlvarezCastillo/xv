@@ -372,6 +372,12 @@
       }
     }
   }
+  .iframe-container{
+    @apply w-full max-w-full;
+    .maps{
+      @apply w-full h-full max-h-[472px] aspect-square;
+    }
+  }
 }
 @layer utilities {
   .addShadow{
